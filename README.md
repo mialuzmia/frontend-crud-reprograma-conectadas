@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# Frontend CRUD Reprograma
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+> Projeto criado para vivenciarmos a criação de uma aplicação
 
-In the project directory, you can run:
+[Trello do projeto](https://trello.com/invite/b/KLJ0xJLh/ATTI3116cadd62a65f361d348fd575b5cf9b18BEC285/conectadas-reprograma-crud)
 
-### `npm start`
+## 💻 Pré-requisitos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Você instalou a versão mais recente de `<Node.Js />`.
+* Você definiu o tema da sua aplicação
+* Link para o modelo no figma [FIGMA EXEMPLO](https://www.figma.com/file/JbhdNDvjI7S0Fbb34DFPzR/Projeto-Conectadas-Reprograma?type=design&node-id=0%3A1&mode=design&t=b6SmyijF1mNMHEA0-1)
 
-### `npm test`
+## 🚀 Instalando `<Frontend CRUD Reprograma>`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para instalar o `<Frontend CRUD Reprograma>`, siga estas etapas:
 
-### `npm run build`
+Faça um fork da aplicação em:
+```
+https://github.com/JulianePires/frontend-crud-reprograma-conectadas.git
+```
+Depois de clonado o projeto, no terminal do seu VSCode, digite 
+```
+npm install
+```
+para instalar as dependências.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ☕ Usando `<Frontend CRUD Reprograma>`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para usar `<Frontend CRUD Reprograma>`, siga estas etapas:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Copie o conteúdo do exemplo de .env com o comando:
+```
+cp .env.example .env
+```
 
-### `npm run eject`
+Preencha com o link do backend da sua aplicação
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Existem TODO's espalhados pela aplicação, cumpra-os.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Aqui estão algumas coisas que precisamos desenvolver:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+-  Criar o conteúdo das páginas
+-  Criar componentes
+-  Modificar arquivos com cores, fontes, ícones, imagens e rotas adequadas ao seu projeto
+-  Criar estilos
+-  Adicionar regras de negócio ao contexto
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Rodar a aplicação:
+```
+npm run dev
+```
 
-## Learn More
+A api terá os os endpoints:
+ * http://localhost:8080/ METHOD GET => mostra todos os objetos listados no banco de dados.
+ * http://localhost:8080/:id METHOD GET => mostra um objeto específico.
+ * http://localhost:8080/submit METHOD POST => cadastra um nova objeto.
+ * http://localhost:8080/edit/:id METHOD PUT => altera um objeto já cadastrado.
+ * http://localhost:8080/delete/:id METHOD DELETE => apaga um objeto pré-cadastrado.
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🤝 Colaboradores
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
-### Code Splitting
+<table>
+  <tr>
+    <td align="center">
+      <a href="#">
+        <img src="https://github.com/JulianePires.png" width="100px;" alt="Foto da Pessoa no GitHub"/><br>
+        <sub>
+          <b>Juliane Pires</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## 📝 Licença
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
