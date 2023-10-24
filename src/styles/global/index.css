@@ -2,6 +2,12 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root{
+  --primary-color: #452770;
 }
 
 html,
