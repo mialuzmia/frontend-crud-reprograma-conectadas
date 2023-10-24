@@ -1,3 +1,4 @@
+import Wrapper from "./components/Wrapper";
 import { BooksProvider } from "./context/Books";
 import { Router } from "./routes/app.routes";
 
@@ -5,7 +6,9 @@ import { Router } from "./routes/app.routes";
 function App() {
   return (
     <BooksProvider>
-      <Router />
+      <Wrapper>
+        <Router />
+      </Wrapper>
     </BooksProvider>
   );
 }

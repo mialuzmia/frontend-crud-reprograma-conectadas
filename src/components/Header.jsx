@@ -12,11 +12,18 @@ const Header = () => {
         <img src={logo} alt="logo" />
 
         <div className={styles.header__socialContainer}>
-            <FacebookLogo size={32} color="#ffffff" weight="fill" />
-            <InstagramLogo size={32} color="#ffffff" weight="fill" />
-            <TwitterLogo size={32} color="#ffffff" weight="fill" />
-            <YoutubeLogo size={32} color="#ffffff" weight="fill" />
-
+            <a href="https://www.google.com/">
+              <FacebookLogo size={25} color="#ffffff" weight="fill" />
+            </a>
+            <a href="https://www.google.com/">
+              <InstagramLogo size={25} color="#ffffff" weight="fill" />
+            </a>
+            <a href="https://www.google.com/">
+              <TwitterLogo size={25} color="#ffffff" weight="fill" />
+            </a>
+            <a href="https://www.google.com/">
+              <YoutubeLogo size={25} color="#ffffff" weight="fill" />
+            </a>
         </div>
     </header>
   )
