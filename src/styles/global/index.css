@@ -3,6 +3,11 @@
 *::after {
   box-sizing: border-box;
   padding: 0;
+  margin: 0;
+}
+
+:root{
+  --primary-color: #452770;
 }
 
 html,
@@ -98,4 +103,13 @@ a {
 #root,
 #__next {
   isolation: isolate;
+}
+
+
+.success{
+  color: green;
+}
+
+.error{
+  color: red;
 }
