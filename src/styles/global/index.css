@@ -104,3 +104,12 @@ a {
 #__next {
   isolation: isolate;
 }
+
+
+.success{
+  color: green;
+}
+
+.error{
+  color: red;
+}
