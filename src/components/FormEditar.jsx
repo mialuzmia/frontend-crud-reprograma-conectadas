@@ -45,10 +45,19 @@ const FormEditar = ({ id }) => {
 	
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
 		console.log('result: ', updates);
 
 		editAnime(updates, id);
+
+    setInputs({
+      title: '',
+      gender: '',
+      image: '',
+      origin: '',
+      studio: '',
+      description: '',
+      author: '',
+    });
 	};
 
 	const inputFields = [
