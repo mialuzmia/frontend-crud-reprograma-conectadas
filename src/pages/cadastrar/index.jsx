@@ -1,7 +1,10 @@
 import styles from "../../styles/pages/Cadastrar.module.css";
 
-const Cadastrar = () => {
-  return <div className={styles.container}>Cadastrar</div>;
-};
 
+
+const Cadastrar = () => {
+  return (
+    <div>Cadatsrar</div>
+  )
+}
 export default Cadastrar;
