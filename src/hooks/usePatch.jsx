@@ -42,5 +42,11 @@ export const usePatch = () => {
     setLoading(false);
   };
   
-    return { response, error, loading, editAnime};
+  const reset = () => {
+    setError(null);
+    setResponse(null);
+    setLoading(false);
+  }
+
+    return { response, error, loading, editAnime, reset};
   };
