@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 
 
 
-export const usePost = () => {
+export const usePatch = () => {
 
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   
 
-  const addAnime = async (data, headers) => {
+  const editAnime = async (data, id,  headers) => {
 
     setResponse(null);
     setError(null);
@@ -21,7 +21,7 @@ export const usePost = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('https://fast-animes.onrender.com/animes/add', dataJSON, {
+      const response = await axios.patch(`https://fast-animes.onrender.com/animes/update/${id}`, dataJSON, {
         headers: {
             'Content-Type': 'application/json', //passa 2 headers padrao e se outros forem passados nop parametro, da um spread e adciona eles
             'Accept': 'application/json',
@@ -36,11 +36,11 @@ export const usePost = () => {
     } 
     catch (error) {
       setError(JSON.stringify(error));
-      console.log('Um erro ocorreu ao tentar cadastrar um item: ' + error);
+      console.log('Um erro ocorreu ao tentar editar um item: ' + error);
     }
 
     setLoading(false);
   };
   
-    return { response, error, loading, addAnime};
+    return { response, error, loading, editAnime};
   };
