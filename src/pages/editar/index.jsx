@@ -12,7 +12,7 @@ const Editar = () => {
   console.log(id);
   
   return (
-    <div className={styles.container}>
+    <div className={`page ${styles.editar__container}`}>
       <FormEditar 
         id={id}
       />
