@@ -1,6 +1,6 @@
+import FormCadastrar from "../../components/FormCadastrar";
 import styles from "../../styles/pages/Cadastrar.module.css";
 
-import FormCadastrar from "../../components/formCadastrar"
 
 
 const Cadastrar = () => {

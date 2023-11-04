@@ -9,6 +9,7 @@ const FormEditar = ({ id }) => {
 
 	const [updates, setUpdates] = useState({});
   const [areInputsBlank, setAreInputsBlank] = useState(false);
+  
   const [inputs, setInputs] = useState({
     title: '',
     gender: '',

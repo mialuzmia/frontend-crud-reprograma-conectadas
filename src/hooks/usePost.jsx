@@ -41,6 +41,12 @@ export const usePost = () => {
 
     setLoading(false);
   };
+
+  const reset = () => {
+    setError(null);
+    setResponse(null);
+    setLoading(false);
+  }
   
-    return { response, error, loading, addAnime};
+    return { response, error, loading, addAnime, reset};
   };
