@@ -5,9 +5,11 @@ import { usePatch } from "../hooks/usePatch";
 
 const FormEditar = ({ id }) => {  
 	const { data: anime } = useGet(`https://fast-animes.onrender.com/animes/${id}`);
-	const { editAnime } = usePatch();	
+	const { editAnime, reset,response, error, loading } = usePatch();	
 
 	const [updates, setUpdates] = useState({});
+  const [areInputsBlank, setAreInputsBlank] = useState(false);
+  
   const [inputs, setInputs] = useState({
     title: '',
     gender: '',
@@ -45,19 +47,29 @@ const FormEditar = ({ id }) => {
 	
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log('result: ', updates);
+    setAreInputsBlank(false);
+    reset();
 
-		editAnime(updates, id);
+    if (Object.values(inputs).every((value) => value === '')) { //verifica se os innputs estao vazios
+    
+      setAreInputsBlank(true);
 
-    setInputs({
-      title: '',
-      gender: '',
-      image: '',
-      origin: '',
-      studio: '',
-      description: '',
-      author: '',
-    });
+    }else{
+      console.log('result: ', updates);
+  
+      editAnime(updates, id);
+  
+      setInputs({
+        title: '',
+        gender: '',
+        image: '',
+        origin: '',
+        studio: '',
+        description: '',
+        author: '',
+      });
+
+    }
 	};
 
 	const inputFields = [
@@ -85,6 +97,12 @@ const FormEditar = ({ id }) => {
           </label>
         ))}
         <button type="submit">Submit</button>
+
+        {response && <p className="success">Anime atualizado com sucesso.</p>}
+        {error && <p className="error">Ocorreu um erro. Tente novamente</p>}
+        {areInputsBlank && <p className="error">Os campos estão vazios. Digite algo para atualizar.</p>}
+
+
       </form>
   )
 }

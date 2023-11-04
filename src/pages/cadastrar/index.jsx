@@ -1,10 +1,13 @@
+import FormCadastrar from "../../components/FormCadastrar";
 import styles from "../../styles/pages/Cadastrar.module.css";
 
 
 
 const Cadastrar = () => {
   return (
-    <div>Cadatsrar</div>
+    <section>
+      <FormCadastrar />
+    </section>
   )
 }
 export default Cadastrar;
