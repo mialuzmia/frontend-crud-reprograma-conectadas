@@ -108,6 +108,11 @@ a {
   isolation: isolate;
 }
 
+.page{
+  width: calc(100% - 2.5rem);
+  min-height: 100%;
+}
+
 
 .success{
   color: green;

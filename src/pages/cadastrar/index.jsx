@@ -5,7 +5,7 @@ import styles from "../../styles/pages/Cadastrar.module.css";
 
 const Cadastrar = () => {
   return (
-    <section>
+    <section className={`page ${styles.cadastrar__container}`}>
       <FormCadastrar />
     </section>
   )

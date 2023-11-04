@@ -7,7 +7,7 @@ const Home = () => {
 
   console.log(animes);
 
-  return <div className={styles.container}>Home</div>;
+  return <div className={`page ${styles.container}`}>Home</div>;
 };
 
 export default Home;
