@@ -1,0 +1,12 @@
+
+.wrapper__container{
+  width: 100%;
+  max-width: 100%;
+}
+
+.main__container{
+  min-height: 70vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
