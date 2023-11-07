@@ -3,7 +3,7 @@ import styles from "../styles/components/Sidebar.module.css";
 
 const Sidebar = () => {
   return (
-    <div className={styles.sidebar__container}>sidebar</div>
+    <div className={styles.sidebar__container}>oi</div>
   )
 }
 
