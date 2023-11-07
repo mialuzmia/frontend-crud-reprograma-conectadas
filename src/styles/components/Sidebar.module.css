@@ -2,4 +2,6 @@
 .sidebar__container{
   width: 2.5rem;
   max-width: 2.5rem;
+  background-color: red;
+
 }

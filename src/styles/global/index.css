@@ -109,8 +109,11 @@ a {
 }
 
 .page{
-  width: calc(100% - 2.5rem);
+  width: 100%;
   min-height: 100%;
+  /* background-color: yellow; */
+  /* overflow-y: auto; */
+
 }
 
 
