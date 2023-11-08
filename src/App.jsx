@@ -6,11 +6,9 @@ import Wrapper from "./components/Wrapper";
 function App() {
 
   return (
+  
+    <Router/>
     
-    <Wrapper>
-      <Router />
-    </Wrapper>
-
   );
 }
 
