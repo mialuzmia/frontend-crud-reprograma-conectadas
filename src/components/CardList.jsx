@@ -1,34 +1,24 @@
 // styles
 import styles from "../styles/components/CardList.module.css";
+import Card from "./Card";
 
-const CardList = ({animes}) => {
+const CardList = ({ animes }) => {
   return (
     <div className={styles.cardList__container}>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
-      <div>oi</div>
+      {animes.map((anime) => (
+        <Card 
+          key={anime._id} 
+          id={anime._id} 
+          img={anime.image} 
+          title={anime.title}
+          gender={anime.gender}
+          origin={anime.origin}
+          author={anime.author}
+          studio={anime.studio}
+        />
+      ))}
     </div>
-  )
+  );
 }
 
 export default CardList
