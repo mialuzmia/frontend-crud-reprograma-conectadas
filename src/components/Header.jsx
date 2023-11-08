@@ -1,6 +1,6 @@
 // styles & images
 import styles from "../styles/components/Header.module.css";
-import logo from "../assets/imagens/logo.png";
+import logo from "../assets/imagens/logo2.png";
 
 // componentes
 import { FacebookLogo, InstagramLogo, TwitterLogo, YoutubeLogo } from "@phosphor-icons/react";

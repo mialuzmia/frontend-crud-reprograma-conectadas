@@ -1,0 +1,32 @@
+.formCadastrar__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  min-height: 80%;
+  background-color: var(--bg-color);
+  border-radius: .5rem;
+  padding: 1rem;
+}
+
+.formCadastrar__container label {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Use a fixed width for the labels */
+  margin-bottom: 1rem; /* Adjust as needed to control the vertical space between label-input pairs */
+}
+
+.formCadastrar__container label p {
+  font-size: 1.2rem;
+}
+
+.formCadastrar__container label input,
+.formCadastrar__container label textarea {
+  flex: 1;
+  width: 80%;
+  max-width: 80%;
+
+}
