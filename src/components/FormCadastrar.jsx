@@ -66,6 +66,8 @@ const FormCadastrar = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.formCadastrar__container}>
+      <h2>Cadastrar anime:</h2>
+
       {inputFields.map((field) => (
         <label key={field.name}>
           <p>{field.label}:</p>

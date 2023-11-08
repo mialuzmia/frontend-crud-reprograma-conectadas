@@ -127,32 +127,36 @@ a {
 
 .loading{
   color: black;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 input, textarea {
-  color: var(--text-color);
+  /* color: var(--text-color); */
+  background-color: transparent;
   padding: 8px;
   font-size: 1em;
   display: block;
   width: 100%;
   box-sizing: border-box;
+  border: none;
+  outline: none;
   /* background: rgba(17, 25, 45, 0.83); */
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* border-radius: 16px; */
+  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
 
-  border: 1px solid rgba(17, 25, 45, 1);
+  /* border: 1px solid rgba(17, 25, 45, 1); */
 }
 
 .btn {
-  background: var(--primary-color);
+  background: var(--bg-color);
+  width: 100%;
   font-family: Silkscreen;
   padding: .5rem .8rem;
   border-radius: .25rem;
   color: var(--text-color);
   cursor: pointer;
   font-size: 1em;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--bg-color);
 }
 .btn:hover {
   color: #333;

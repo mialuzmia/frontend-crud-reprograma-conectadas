@@ -3,8 +3,15 @@ import styles from "../styles/components/Card.module.css";
 
 import { Link } from "react-router-dom";
 import { Pencil, Trash } from "@phosphor-icons/react";
+import { useDelete } from "../hooks/useDelete";
 
 const Card = ({ id, img, title, gender, origin, author, studio }) => {
+  const {deleteAnime} = useDelete();
+
+  const handleClick = (id) => {
+    deleteAnime(id)
+  }
+
   return (
     <div className={styles.card__container}>
       <img src={img} alt="anime" className={styles.card__img}/>
@@ -23,7 +30,11 @@ const Card = ({ id, img, title, gender, origin, author, studio }) => {
           <Link to={`/livros/${id}/editar`}>
             <Pencil size={25} color="#ffffff" weight="fill"/>
           </Link>
-          <button className={styles.sidebar__deleteButton}>
+
+          <button 
+            className={styles.sidebar__deleteButton}
+            onClick={handleClick}
+          >
             <Trash size={25} color="#ffffff" weight="bold"/>
           </button>
         </div>

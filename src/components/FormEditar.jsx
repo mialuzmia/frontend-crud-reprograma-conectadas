@@ -1,10 +1,12 @@
+// styles
+import styles from "../styles/components/FormEditar.module.css";
+
 // hooks
 import { useGet } from "../hooks/useGet";
 import { useEffect, useState } from "react";
 import { usePatch } from "../hooks/usePatch";
 
-const FormEditar = ({ id }) => {  
-	const { data: anime } = useGet(`https://fast-animes.onrender.com/animes/${id}`);
+const FormEditar = ({ id, anime }) => {  
 	const { editAnime, reset,response, error, loading } = usePatch();	
 
 	const [updates, setUpdates] = useState({});
@@ -44,6 +46,7 @@ const FormEditar = ({ id }) => {
       [name]: value,
     });
   };
+  
 	
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -82,21 +85,35 @@ const FormEditar = ({ id }) => {
     { name: 'author', label: 'Autor' },
   ];
 
-  return (
-      <form onSubmit={handleSubmit}>
+  
 
-        {inputFields.map((field) => (
-          <label key={field.name}>
-            {field.label}:
+  return (
+    <form onSubmit={handleSubmit} className={styles.formEditar__container}>
+
+      <h2>Editar Anime ({anime.title}):</h2>
+
+      {inputFields.map((field) => (
+        <label key={field.name}>
+          <p>{field.label}:</p>
+          {field.name === "description" ? (
+            <textarea
+              required
+              name={field.name}
+              value={inputs[field.name]}
+              onChange={handleInputChange}
+            />
+          ) : (
             <input
+              required
               type="text"
               name={field.name}
               value={inputs[field.name]}
               onChange={handleInputChange}
             />
-          </label>
-        ))}
-        <button type="submit">Submit</button>
+          )}
+        </label>
+      ))}
+        <button type="submit" className="btn">Enviar</button>
 
         {response && <p className="success">Anime atualizado com sucesso.</p>}
         {error && <p className="error">Ocorreu um erro. Tente novamente</p>}
