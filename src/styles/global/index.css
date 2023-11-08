@@ -10,12 +10,12 @@
 }
 
 :root{
-  --primary-color: #452770;
+  --primary-color: #1366d3;
 }
 
 html,
 body {
-  height: 100%;
+  height: 100vh;
 }
 
 html {

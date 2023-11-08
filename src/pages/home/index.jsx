@@ -1,6 +1,9 @@
-import CardList from "../../components/CardList";
-import { useGet } from "../../hooks/useGet";
+// styles
 import styles from "../../styles/pages/Home.module.css";
+// components
+import CardList from "../../components/CardList";
+// hooks
+import { useGet } from "../../hooks/useGet";
 
 
 const Home = () => {
@@ -10,7 +13,7 @@ const Home = () => {
 
   return (
     <section className={`page ${styles.home__container}`}>
-      <CardList />
+      {animes && <CardList animes={animes}/>}
     </section>
   );
 };
