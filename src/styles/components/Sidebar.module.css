@@ -2,7 +2,7 @@
 .sidebar__container{
   width: 2.5rem;
   max-width: 2.5rem;
-  background-color: #818FB4;
+  background-color: var(--secondary-color);
   display: flex;
   flex-direction: column;
   justify-content: center;

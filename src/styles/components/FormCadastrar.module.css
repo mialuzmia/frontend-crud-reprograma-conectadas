@@ -1,0 +1,39 @@
+.formCadastrar__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 80%;
+  /* background-color: var(--bg-color); */
+  border-radius: .5rem;
+  gap: .5rem;
+  
+}
+
+.formCadastrar__container h2 {
+  color: var(--bg-color);
+}
+
+.formCadastrar__container label {
+  border: 2px solid var(--secondary-color);
+  padding: .3rem;
+  border-radius: .5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; 
+}
+
+.formCadastrar__container label p {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+}
+
+.formCadastrar__container label input,
+.formCadastrar__container label textarea {
+  flex: 1;
+  /* width: 80%;
+  max-width: 80%; */
+
+}

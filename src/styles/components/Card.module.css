@@ -1,6 +1,6 @@
 .card__container {
   display: flex;
-  background-color: #062e9bd3;
+  background-color: var(--bg-color);
   color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   border-radius: .5rem;
