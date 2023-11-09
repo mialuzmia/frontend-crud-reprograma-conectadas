@@ -1,0 +1,40 @@
+.formEditar__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 80%;
+  /* background-color: var(--bg-color); */
+  border-radius: .5rem;
+  gap: .5rem;
+  
+}
+
+.formEditar__container h2 {
+  color: var(--bg-color);
+}
+
+.formEditar__container label {
+  border: 2px solid var(--secondary-color);
+  padding: .3rem;
+  border-radius: .5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; 
+}
+
+.formEditar__container label p {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+}
+
+.formEditar__container label input,
+.formEditar__container label textarea {
+  flex: 1;
+  /* width: 80%;
+  max-width: 80%; */
+
+}
+
