@@ -1,6 +1,7 @@
 
 .cardDevs{
     align-items: center;
+    justify-content: center;
     display: flex;
     flex-direction: column;
     border-radius: 8px;
@@ -17,6 +18,7 @@
 .card__subtitle{
     text-align: center;
     color: #f5b92e;
+    font-size: 1.2rem;
 }
 .cardTitle{
     text-align: center;
@@ -26,12 +28,17 @@
 .card__description{
     text-align: center;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: small;
+    font-size: 1rem;
+    width: 70%;
 }
 
 .cardLink{
     text-decoration: none;
     color: rgb(128, 128, 199);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .card__image {
