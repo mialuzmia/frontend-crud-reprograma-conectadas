@@ -1,5 +1,5 @@
 
-.cardDevs{
+.card__devs{
     align-items: center;
     justify-content: center;
     display: flex;
@@ -20,7 +20,7 @@
     color: #f5b92e;
     font-size: 1.2rem;
 }
-.cardTitle{
+.card__title{
     text-align: center;
     color: #062e9bd3;
 }
@@ -32,7 +32,7 @@
     width: 70%;
 }
 
-.cardLink{
+.card__link{
     text-decoration: none;
     color: rgb(128, 128, 199);
     display: flex;
