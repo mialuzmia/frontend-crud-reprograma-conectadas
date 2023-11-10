@@ -7,10 +7,13 @@ import FormEditar from "../../components/FormEditar";
 import { useParams } from "react-router-dom";
 import { useGet } from "../../hooks/useGet";
 
+import ReactLoading  from "react-loading";
+
+
 const Editar = () => {
   const { id } = useParams();
 
-	const { data: anime } = useGet(`https://fast-animes.onrender.com/animes/${id}`);
+	const { data: anime, loading } = useGet(`https://fast-animes.onrender.com/animes/${id}`);
 
   
   return (
@@ -18,6 +21,9 @@ const Editar = () => {
       {anime && <FormEditar 
         anime={anime}
       />}
+
+  {loading && <ReactLoading type="spin" color="#1366d3"  />}
+
     </div>
   );
 };
