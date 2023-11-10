@@ -17,7 +17,7 @@ const Sidebar = () => {
         <Link to="/cadastrar">
           <Plus size={30} color="#fff" weight="bold"/>
         </Link>
-        <Link to="/">
+        <Link to="/sobre">
           <UserCircle size={30} color="#fff" weight="bold"/>
         </Link>
       </div>
