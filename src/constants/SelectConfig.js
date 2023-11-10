@@ -2,10 +2,10 @@ export const customStyles = {
   control: (base, state) => ({
     ...base,
     padding: ".3rem",
-    fontSize: "1.2rem",
+    fontSize: "1rem",
     borderRadius: ".5rem",
-    border:"2px solid var(--secondary-color)",
-    boxShadow: state.isFocused ? "var(--secondary-color)" : "var(--secondary-color)",
+    border:"2px solid var(--gray-color)",
+    boxShadow: state.isFocused ? "var(--gray-color)" : "var(--gray-color)",
     '&:hover': {
        borderColor: "var(--bg-color)"
     }
@@ -14,7 +14,25 @@ export const customStyles = {
     ...base,
     width: "100%",
    
-  })
+  }),
+  multiValue: (base, state) => ({
+    ...base,
+    backgroundColor: "var(--secondary-color)",
+    borderRadius: ".25rem",
+  }),
+  multiValueLabel: (base, state) => ({
+    ...base,
+    color: "var(--text-color)",
+    fontSize: "1rem",
+    fontWeight: "bold",
+  }),
+   multiValueRemove: (base, state) => ({
+    ...base,
+    color: "var(--text-color)", // Change the color to white
+    '&:hover': {
+      color: "var(--text-color)", // Change the hover color to white
+    },
+  }),
 };
 
 export const genderOptions = [

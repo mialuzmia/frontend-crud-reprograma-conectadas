@@ -10,8 +10,6 @@ import { useGet } from "../../hooks/useGet";
 const Editar = () => {
   const { id } = useParams();
 
-  console.log(id);
-
 	const { data: anime } = useGet(`https://fast-animes.onrender.com/animes/${id}`);
 
   
