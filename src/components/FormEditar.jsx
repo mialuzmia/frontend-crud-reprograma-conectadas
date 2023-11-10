@@ -142,22 +142,7 @@ const FormEditar = ({ id, anime }) => {
   authorsInput.current.focus();
 }
 
-// const handleTest = () => {
-//   editAnime({ "title": "Shingeki no Kiojin",
-//         "gender": [
-//           "SEINEN",
-//           "SHONEN"
-//         ],
-//         "image": "https://www.crunchyroll.com/imgsrv/display/thumbnail/480x720/catalog/crunchyroll/323c82257b2f6567fabbb7bd55bfa753.jpe",
-//         "origin": "MANGA",
-//         "studio": "MAPPA",
-//         "description": "Shingeki no Kyojin (Attack on Titan) é um anime que se passa em um mundo onde a humanidade está à beira da extinção devido a gigantes humanoides chamados Titãs que devoram humanos. A história segue Eren Yeager e seus amigos enquanto eles lutam para sobreviver, descobrindo segredos obscuros sobre os Titãs e sua sociedade. A série é conhecida por sua ação intensa e explorou temas como liberdade, política e moralidade. É uma das séries de anime mais populares e influentes dos últimos anos.",
-//         "authorship": [
-//           "Hajime Isayama"
-//         ]}, "654cc65ec8b8d4287a437171")
-// }
   return (
-    <>
     <form onSubmit={handleSubmit} className={styles.formEditar__container}>
       <h2>Editar Anime:</h2>
 
@@ -257,13 +242,6 @@ const FormEditar = ({ id, anime }) => {
         <p className="error">Os campos estão vazios. Digite algo para atualizar.</p>
       )}
     </form>
-        {/* <button
-        onClick={handleTest
-      }
-        >teste</button> */}
-
-
-</>
   );
 };
 
