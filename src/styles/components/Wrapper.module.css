@@ -22,6 +22,8 @@
   overflow-y: scroll; /* Enable scrolling for the content area when it exceeds the viewport height */
   scrollbar-width: none; /* Hide the scrollbar on Firefox */
   -ms-overflow-style: none;
+  min-height: 100%;
+  /* padding: 2rem 0; */
 
 }
 /* .content::-webkit-scrollbar {

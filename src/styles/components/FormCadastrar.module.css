@@ -4,20 +4,28 @@
   justify-content: center;
   align-items: center;
   width: 60%;
-  height: 80%;
+  min-height: 80%;
+
   /* background-color: var(--bg-color); */
   border-radius: .5rem;
   gap: .5rem;
-  
+  color: black;
+  margin: 2rem 0 5rem 0;
 }
 
 .formCadastrar__container h2 {
   color: var(--bg-color);
 }
 
+.formCadastrar__select{
+  width: 100%;
+ 
+}
+
+
 .formCadastrar__container label {
-  border: 2px solid var(--secondary-color);
-  padding: .3rem;
+  border: 2px solid var(--gray-color);
+
   border-radius: .5rem;
   display: flex;
   justify-content: space-between;
@@ -25,15 +33,65 @@
   width: 100%; 
 }
 
+/* .formCadastrar__container label p {
+  font-size: 1rem;
+  color: var(--gray-color);
+} */
+.formCadastrar__container p {
+  /* font-size: 1rem; */
+  color: var(--gray-color);
+}
+
+
+.formCadastrar__container label {
+  border: 2px solid var(--gray-color);
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100%; 
+}
+
+.formCadastrar__container label:focus-within {
+  border: 2px solid var(--bg-color); /* Set your desired outline color */
+}
+
 .formCadastrar__container label p {
-  font-size: 1.2rem;
-  color: var(--secondary-color);
+  font-size: 1rem;
+  color: var(--gray-color);
 }
 
 .formCadastrar__container label input,
-.formCadastrar__container label textarea {
+.formCadastrar__container label .react-select__control {
   flex: 1;
-  /* width: 80%;
-  max-width: 80%; */
+}
 
+.description__label{
+  flex-direction: column;
+  align-items: flex-start;
+}
+.description__label p{
+  text-align: left;
+  width: 100%;
+}
+.description__label textarea{
+  padding: 0 .5rem;
+  resize: vertical;
+  min-height: 10rem;
+}
+.formCadastrar__authorsContainer{
+  flex-direction: column;
+}
+.formCadastrar__authorsContainer div{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  
+}
+
+.formCadastrar__authorsContainer div button{
+  width: 20%;
+  
 }
