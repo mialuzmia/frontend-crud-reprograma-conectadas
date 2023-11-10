@@ -10,76 +10,133 @@ import { customStyles, genderOptions } from "../constants/SelectConfig.js";
 
 const FormEditar = ({ id, anime }) => {
   const { editAnime, reset, response, error, loading } = usePatch();
+  const [updates, setUpdates] = useState(anime);
 
-  const [updates, setUpdates] = useState({});
   const [areInputsBlank, setAreInputsBlank] = useState(false);
 
-  const [inputs, setInputs] = useState({
-    title: '',
-    gender: [],
-    image: '',
-    origin: '',
-    studio: '',
-    description: '',
-    author: '',
-  });
+  const [title, setTitle] = useState(anime.title);
+  const [image, setImage] = useState(anime.image);
+  const [origin, setOrigin] = useState(anime.origin);
+  const [studio, setStudio] = useState(anime.studio);
+  const [description, setDescription] = useState(anime.description);
+  const [authorship, setAuthorship] = useState(anime.authorship);
+
+
+  const [gender, setGender] = useState(
+    anime.gender.map((animeGender) => ({
+      value: animeGender,
+      label: animeGender,
+    }))
+  );
+
+  const [genderFinal, setgenderFinal] = useState(anime.gender);
 
   useEffect(() => {
-    if (anime) {
+    if(anime){
       let newUpdates = {};
-
-      for (const key in inputs) {
-        if (inputs[key] !== '' && inputs[key] !== anime[key]) {
-          newUpdates[key] = inputs[key];
-        } else {
-          newUpdates[key] = anime[key];
-        }
+  
+      if (title && title !== anime.title) {
+        newUpdates.title = title;
       }
+      else{
+        newUpdates.title = anime.title;
+        
+      }
+  
+      if (image && image !== anime.image) {
+        newUpdates.image = image;
+      }
+      else{
+        newUpdates.image = anime.image;
+        
+      }
+  
+      if (origin && origin !== anime.origin) {
+        newUpdates.origin = origin;
+      }
+      else{
+        newUpdates.origin = anime.origin;
+        
+      }
+  
 
-      setUpdates(newUpdates);
+      if (studio && studio !== anime.studio) {
+        newUpdates.studio = studio;
+      }
+      else{
+        newUpdates.studio = anime.studio;
+        
+      }
+  
+      if (description && description !== anime.description) {
+        newUpdates.description = description;
+      }
+      else{
+        newUpdates.description = anime.description;
+        
+      }
+  
+      if (authorship && authorship !== anime.authorship) {
+        newUpdates.authorship = authorship;
+      }
+      else{
+        newUpdates.authorship = anime.authorship;
+        
+      }
+  
+      if (gender.length > 0 && JSON.stringify(gender) !== JSON.stringify(anime.gender)) {
+        newUpdates.gender = gender.map((selectedGender) => selectedGender.value);
+      } else {
+        newUpdates.gender = anime.gender.map((animeGender) => ({
+          value: animeGender,
+          label: animeGender, 
+        }));
+      }
+  
+      setUpdates(newUpdates)
     }
-  }, [inputs]);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
-  };
-
-  const handleGenderChange = (selectedOption) => {
-    setInputs({
-      ...inputs,
-      gender: selectedOption.value,
-    });
-  };
-
+    
+    // console.log("results:", updates);
+    
+  }, [title, gender, image, origin, studio, description, authorship])
+ 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    setAreInputsBlank(false);
     reset();
-
-    if (Object.values(inputs).every((value) => value === '')) {
+    
+    if (Object.values(updates).every((value) => value === '')) {
       setAreInputsBlank(true);
     } else {
+      
+      // const finalUpdates = {
+      //   ...updates,
+      //   gender: gender.map((selectedGender) => selectedGender.value),
+      // }
+
       console.log('result: ', updates);
+      editAnime(updates, id);
 
-      // editAnime(updates, id);
+  
+      // setTitle('');
+      // setGender([]);
+      // setImage('');
+      // setOrigin('');
+      // setStudio('');
+      // setDescription('');
+      // setAuthorship('');
 
-      setInputs({
-        title: '',
-        gender: '',
-        image: '',
-        origin: '',
-        studio: '',
-        description: '',
-        author: '',
-      });
+      setAreInputsBlank(false);
     }
   };
 
-  
+
+  const handleGenderChange = (selectedOptions) => {
+    // setDisplayGender(selectedOptions);
+    setGender(selectedOptions);
+
+   
+  };
 
   return (
     <>
@@ -92,18 +149,19 @@ const FormEditar = ({ id, anime }) => {
           required
           type="text"
           name="title"
-          value={inputs.title}
-          onChange={handleInputChange}
+          value={title}
+          onChange={(e) => {setTitle(e.target.value)}}
         />
       </label>
     
       <Select
-        value={inputs.gender}
+        value={gender}
         options={genderOptions}
         onChange={handleGenderChange}
         placeholder="Selecione o gênero:"
         className={styles.formEditar__select}
         styles={customStyles}
+        isMulti={true}
   
       />
    
@@ -114,8 +172,8 @@ const FormEditar = ({ id, anime }) => {
           required
           type="text"
           name="image"
-          value={inputs.image}
-          onChange={handleInputChange}
+          value={image}
+          onChange={(e) => {setImage(e.target.value)}}
         />
       </label>
 
@@ -125,8 +183,8 @@ const FormEditar = ({ id, anime }) => {
           required
           type="text"
           name="origin"
-          value={inputs.origin}
-          onChange={handleInputChange}
+          value={origin}
+          onChange={(e) => {setOrigin(e.target.value)}}
         />
       </label>
 
@@ -136,8 +194,8 @@ const FormEditar = ({ id, anime }) => {
           required
           type="text"
           name="studio"
-          value={inputs.studio}
-          onChange={handleInputChange}
+          value={studio}
+          onChange={(e) => {setStudio(e.target.value)}}
         />
       </label>
 
@@ -148,25 +206,32 @@ const FormEditar = ({ id, anime }) => {
         <textarea
           required
           name="description"
-          value={inputs.description}
-          onChange={handleInputChange}
+          value={description}
+          onChange={(e) => {setDescription(e.target.value)}}
         />
       </label>
 
-      <label>
+      {/* <label>
         <p>Autor:</p>
         <input
           required
           type="text"
           name="author"
-          value={inputs.author}
-          onChange={handleInputChange}
+          value={authorship}
+          onChange={(e) => {setAuthorship(e.target.value)}}
         />
-      </label>
+      </label> */}
 
       <button type="submit" className="btn">
         Enviar
       </button>
+
+      {/* <button onClick={() => {
+        // console.log("display gender: ", displayGender );
+        console.log("gender: ", gender);
+        }}>
+        aperta
+      </button> */}
 
       {response && <p className="success">Anime atualizado com sucesso.</p>}
       {error && <p className="error">Ocorreu um erro. Tente novamente</p>}

@@ -1,9 +1,11 @@
 .editar__container{
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  /* padding: 2rem 0; */
 
   /* flex: 1;
   overflow: hidden;
