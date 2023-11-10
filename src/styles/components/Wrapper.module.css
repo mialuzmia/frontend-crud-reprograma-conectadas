@@ -19,8 +19,8 @@
   
   flex: 1;
   overflow: hidden;
-  overflow-y: scroll; /* Enable scrolling for the content area when it exceeds the viewport height */
-  scrollbar-width: none; /* Hide the scrollbar on Firefox */
+  overflow-y: scroll; 
+  scrollbar-width: none;
   -ms-overflow-style: none;
 
 }

@@ -8,13 +8,18 @@ import { useDelete } from "../hooks/useDelete";
 const Card = ({ id, img, title, gender, origin, author, studio }) => {
   const {deleteAnime} = useDelete();
 
-  const handleClick = (id) => {
-    deleteAnime(id)
+  const handleClick = () => {
+     deleteAnime(id); 
+
+      
   }
+
 
   return (
     <div className={styles.card__container}>
-      <img src={img} alt="anime" className={styles.card__img}/>
+      <Link to={`/animes/${id}`}>
+        <img src={img} alt="anime" className={styles.card__img}/>
+      </Link>
       <div className={styles.sidebar__content}>
         <h2>{title}</h2>
         
@@ -27,7 +32,7 @@ const Card = ({ id, img, title, gender, origin, author, studio }) => {
         </div>
 
         <div className={styles.sidebar__buttonsContainer}>
-          <Link to={`/livros/${id}/editar`}>
+          <Link to={`/animes/${id}/editar`}>
             <Pencil size={25} color="#ffffff" weight="fill"/>
           </Link>
 

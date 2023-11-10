@@ -1,20 +1,22 @@
 // styles
 import styles from "../styles/components/FormEditar.module.css";
 
-// hooks
-import { useGet } from "../hooks/useGet";
 import { useEffect, useState } from "react";
 import { usePatch } from "../hooks/usePatch";
 
-const FormEditar = ({ id, anime }) => {  
-	const { editAnime, reset,response, error, loading } = usePatch();	
+import Select from 'react-select';
+import { customStyles, genderOptions } from "../constants/SelectConfig.js";
 
-	const [updates, setUpdates] = useState({});
+
+const FormEditar = ({ id, anime }) => {
+  const { editAnime, reset, response, error, loading } = usePatch();
+
+  const [updates, setUpdates] = useState({});
   const [areInputsBlank, setAreInputsBlank] = useState(false);
-  
+
   const [inputs, setInputs] = useState({
     title: '',
-    gender: '',
+    gender: [],
     image: '',
     origin: '',
     studio: '',
@@ -38,30 +40,33 @@ const FormEditar = ({ id, anime }) => {
     }
   }, [inputs]);
 
-	
   const handleInputChange = (e) => {
-		const { name, value } = e.target;
+    const { name, value } = e.target;
     setInputs({
-			...inputs,
+      ...inputs,
       [name]: value,
     });
   };
-  
-	
-	const handleSubmit = (e) => {
-		e.preventDefault();
+
+  const handleGenderChange = (selectedOption) => {
+    setInputs({
+      ...inputs,
+      gender: selectedOption.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setAreInputsBlank(false);
     reset();
 
-    if (Object.values(inputs).every((value) => value === '')) { //verifica se os innputs estao vazios
-    
+    if (Object.values(inputs).every((value) => value === '')) {
       setAreInputsBlank(true);
-
-    }else{
+    } else {
       console.log('result: ', updates);
-  
-      editAnime(updates, id);
-  
+
+      // editAnime(updates, id);
+
       setInputs({
         title: '',
         gender: '',
@@ -71,57 +76,108 @@ const FormEditar = ({ id, anime }) => {
         description: '',
         author: '',
       });
-
     }
-	};
-
-	const inputFields = [
-    { name: 'title', label: 'Título' },
-    { name: 'gender', label: 'Gênero' },
-    { name: 'image', label: 'Imagem' },
-    { name: 'origin', label: 'Material Original' },
-    { name: 'studio', label: 'Estúdio' },
-    { name: 'description', label: 'Descrição' },
-    { name: 'author', label: 'Autor' },
-  ];
+  };
 
   
 
   return (
+    <>
     <form onSubmit={handleSubmit} className={styles.formEditar__container}>
-
       <h2>Editar Anime ({anime.title}):</h2>
 
-      {inputFields.map((field) => (
-        <label key={field.name}>
-          <p>{field.label}:</p>
-          {field.name === "description" ? (
-            <textarea
-              required
-              name={field.name}
-              value={inputs[field.name]}
-              onChange={handleInputChange}
-            />
-          ) : (
-            <input
-              required
-              type="text"
-              name={field.name}
-              value={inputs[field.name]}
-              onChange={handleInputChange}
-            />
-          )}
-        </label>
-      ))}
-        <button type="submit" className="btn">Enviar</button>
+      <label>
+        <p>Título:</p>
+        <input
+          required
+          type="text"
+          name="title"
+          value={inputs.title}
+          onChange={handleInputChange}
+        />
+      </label>
+    
+      <Select
+        value={inputs.gender}
+        options={genderOptions}
+        onChange={handleGenderChange}
+        placeholder="Selecione o gênero:"
+        className={styles.formEditar__select}
+        styles={customStyles}
+  
+      />
+   
 
-        {response && <p className="success">Anime atualizado com sucesso.</p>}
-        {error && <p className="error">Ocorreu um erro. Tente novamente</p>}
-        {areInputsBlank && <p className="error">Os campos estão vazios. Digite algo para atualizar.</p>}
+      <label>
+        <p>Imagem:</p>
+        <input
+          required
+          type="text"
+          name="image"
+          value={inputs.image}
+          onChange={handleInputChange}
+        />
+      </label>
+
+      <label>
+        <p>Material Original:</p>
+        <input
+          required
+          type="text"
+          name="origin"
+          value={inputs.origin}
+          onChange={handleInputChange}
+        />
+      </label>
+
+      <label>
+        <p>Estúdio:</p>
+        <input
+          required
+          type="text"
+          name="studio"
+          value={inputs.studio}
+          onChange={handleInputChange}
+        />
+      </label>
+
+      
+
+      <label className={styles.description__label}>
+        <p>Descrição:</p>
+        <textarea
+          required
+          name="description"
+          value={inputs.description}
+          onChange={handleInputChange}
+        />
+      </label>
+
+      <label>
+        <p>Autor:</p>
+        <input
+          required
+          type="text"
+          name="author"
+          value={inputs.author}
+          onChange={handleInputChange}
+        />
+      </label>
+
+      <button type="submit" className="btn">
+        Enviar
+      </button>
+
+      {response && <p className="success">Anime atualizado com sucesso.</p>}
+      {error && <p className="error">Ocorreu um erro. Tente novamente</p>}
+      {areInputsBlank && (
+        <p className="error">Os campos estão vazios. Digite algo para atualizar.</p>
+      )}
+    </form>
 
 
-      </form>
-  )
-}
+</>
+  );
+};
 
-export default FormEditar
+export default FormEditar;
