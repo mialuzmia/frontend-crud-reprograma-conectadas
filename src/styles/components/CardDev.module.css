@@ -1,5 +1,5 @@
 
-.cardDevs{
+.card__devs{
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@
     text-align: center;
     color: #f5b92e;
 }
-.cardTitle{
+.card__title{
     text-align: center;
     color: #062e9bd3;
 }
@@ -29,7 +29,7 @@
     font-size: small;
 }
 
-.cardLink{
+.card__link{
     text-decoration: none;
     color: rgb(128, 128, 199);
 }
