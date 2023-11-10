@@ -10,8 +10,9 @@ const CardDev = ({ id, image, name, subtitlle, description, github }) => {
         <h2 className={styles.card__title}>{name}</h2>
         <h3 className={styles.card__subtitle}>{subtitlle}</h3>
         <h4 className={styles.card__description}>{description}</h4>
-        <a className={styles.card__link} href={github}>
-        <GithubLogo size={20} />
+
+        <a className={styles.cardLink} href={github} >
+        <GithubLogo size={40} />
         </a>
     </div>
     

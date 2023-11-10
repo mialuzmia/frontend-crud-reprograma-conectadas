@@ -22,7 +22,7 @@ const Sobre = () => {
       image: imgmia,
       name: "Mia Azevedo",
       subtitlle: "Front-end",
-      description: " Gosto de de livros de fantasia, animações (desenhos e animes), jogos antigos e da minha gata",
+      description: " Gosto de livros de fantasia, animações, jogos antigos e da minha gatinha Erin 🐱",
       github: "https://www.linkedin.com/in/mialuzmia/"},
       {key: "3", 
       image: imgsarah,
