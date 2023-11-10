@@ -25,7 +25,7 @@ export const useGet = (url, options) => {
 
             setLoading(false);
         };
-    
+    console.log(loading);
         fetchData();
     }, [url, options]);
 
