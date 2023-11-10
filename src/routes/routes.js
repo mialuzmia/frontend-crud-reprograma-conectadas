@@ -8,8 +8,8 @@ import Visualizar from "../pages/visualizar";
 export const PATHS = {
   HOME: "/",
   CADASTRAR: "/cadastrar",
-  VISUALIZAR: "/livros/:id",
-  EDITAR: "/livros/:id/editar",
+  VISUALIZAR: "/animes/:id",
+  EDITAR: "/animes/:id/editar",
   SOBRE: "/sobre",
 };
 

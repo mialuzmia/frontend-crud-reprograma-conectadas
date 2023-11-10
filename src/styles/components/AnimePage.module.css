@@ -1,0 +1,84 @@
+
+.animePage__container{
+  display: flex;
+  min-height: 80%;
+  width: 80%;
+  justify-content: space-between;
+  
+}
+
+.animePage__imgAndButtons{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+.animePage__imgAndButtons img{
+  width: 100%;
+}
+
+.animePage__buttonsContainer{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.animePage__buttonsContainer span{
+  
+  color: var(--bg-color);
+  font-size: .9rem;
+  font-weight: bold;
+}
+
+.animePage__buttons{
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+
+}
+
+.animePage__deleteButton{
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.animePage__content{
+  width: 70%;
+  text-align: justify;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* gap: .3rem; */
+  
+}
+
+.animePage__content h2{
+  color: var(--primary-color);
+}
+.animePage__content h3{
+  color: var(--gray-color);
+  margin-bottom: .5rem;
+}
+
+.animePage__content p{
+  color: var(--dark-gray);
+  margin-bottom: .5rem;
+  font-size: 1rem;
+}
+
+.animePage__content span{
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  padding: .25rem;
+  border-radius: .5rem;
+  margin-left: .5rem;
+  font-weight: bold;
+  font-size: .9rem;
+}
+
+.animePage__description{
+  margin-top: 1rem;
+}

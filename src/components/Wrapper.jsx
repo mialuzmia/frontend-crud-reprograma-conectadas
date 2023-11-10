@@ -13,7 +13,7 @@ const Wrapper = ({ children, rota }) => {
           {children}
         </div>
       </div>
-      <Footer content="lorem" />
+      {/* <Footer content="lorem" /> */}
     </div>
   );
 };

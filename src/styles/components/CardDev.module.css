@@ -1,0 +1,44 @@
+
+.cardDevs{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    /* background-color:#FFC0CB;
+    box-shadow: 0 2px 4px #b3b1b4; */
+    padding: 1rem;
+}
+
+
+.card__description{
+    color: #616161;
+}
+
+.card__subtitle{
+    text-align: center;
+    color: #f5b92e;
+}
+.cardTitle{
+    text-align: center;
+    color: #062e9bd3;
+}
+
+.card__description{
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: small;
+}
+
+.cardLink{
+    text-decoration: none;
+    color: rgb(128, 128, 199);
+}
+
+.card__image {
+    width: 200px;
+    height: 200px; /* Certifique-se de definir a mesma altura que a largura para criar um círculo */
+    border-radius: 50%; /* Define a borda como circular */
+    object-fit: cover; /* Isso ajuda a garantir que a imagem seja redimensionada corretamente */
+  }
+  
+

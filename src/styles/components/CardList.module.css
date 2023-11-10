@@ -20,7 +20,7 @@
 .cardList__container{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
     width: 100%;
     padding: 1.8rem;
     /* max-height: 70vh; */
