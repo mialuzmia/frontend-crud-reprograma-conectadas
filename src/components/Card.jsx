@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Pencil, Trash } from "@phosphor-icons/react";
 import { useDelete } from "../hooks/useDelete";
 
-const Card = ({ id, img, title, gender, origin, author, studio }) => {
+const Card = ({ id, img, title, gender, origin, authorship, studio }) => {
   const {deleteAnime} = useDelete();
 
   const handleClick = () => {
@@ -17,7 +17,7 @@ const Card = ({ id, img, title, gender, origin, author, studio }) => {
 
   return (
     <div className={styles.card__container}>
-      <Link to={`/animes/${id}`}>
+      <Link to={`/animes/${id}`} className={styles.card__imgContainer}>
         <img src={img} alt="anime" className={styles.card__img}/>
       </Link>
       <div className={styles.sidebar__content}>
@@ -26,7 +26,7 @@ const Card = ({ id, img, title, gender, origin, author, studio }) => {
         <div className={styles.sidebar__infoContainer}>
         <p>{`Gênero: ${gender.join(", ")}`}</p>
         <p>Material original: {origin}</p>
-        <p>Autor(a): {author}</p>
+        <p>{`Autoria: ${authorship.join(", ")}`}</p>
         <p>Estúdio: {studio}</p>
 
         </div>

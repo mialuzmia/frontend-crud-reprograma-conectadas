@@ -141,7 +141,7 @@ const FormEditar = ({ id, anime }) => {
   return (
     <>
     <form onSubmit={handleSubmit} className={styles.formEditar__container}>
-      <h2>Editar Anime ({anime.title}):</h2>
+      <h2>Editar Anime:</h2>
 
       <label>
         <p>Título:</p>

@@ -30,4 +30,6 @@ export const genderOptions = [
     { value: 'KODOMOMUKE', label: 'KODOMOMUKE' },
     { value: 'IYASHIKEI', label: 'IYASHIKEI' },
     { value: 'YAOI', label: 'YAOI' },
-  ]
+    { value: 'YURI', label: 'YURI' },
+
+]

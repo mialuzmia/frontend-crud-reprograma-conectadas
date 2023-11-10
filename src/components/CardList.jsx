@@ -13,7 +13,7 @@ const CardList = ({ animes }) => {
           title={anime.title}
           gender={anime.gender}
           origin={anime.origin}
-          author={anime.author}
+          authorship={anime.authorship}
           studio={anime.studio}
         />
       ))}
