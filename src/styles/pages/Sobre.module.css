@@ -1,2 +1,10 @@
-.container {
+
+.containerDevs{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 50%;
+    justify-content: center;
 }
