@@ -1,7 +1,7 @@
 // styles
 import styles from "../styles/components/FormEditar.module.css";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { usePatch } from "../hooks/usePatch";
 
 import Select from 'react-select';
@@ -21,6 +21,9 @@ const FormEditar = ({ id, anime }) => {
   const [description, setDescription] = useState(anime.description);
   const [authorship, setAuthorship] = useState(anime.authorship);
 
+  const [newAuthor, setNewAuthor] = useState("");
+
+  const authorsInput = useRef(null)
 
   const [gender, setGender] = useState(
     anime.gender.map((animeGender) => ({
@@ -28,8 +31,6 @@ const FormEditar = ({ id, anime }) => {
       label: animeGender,
     }))
   );
-
-  const [genderFinal, setgenderFinal] = useState(anime.gender);
 
   useEffect(() => {
     if(anime){
@@ -78,10 +79,12 @@ const FormEditar = ({ id, anime }) => {
   
       if (authorship && authorship !== anime.authorship) {
         newUpdates.authorship = authorship;
-      }
-      else{
+      } else {
         newUpdates.authorship = anime.authorship;
-        
+        // Initialize newAuthor with the first author in the list
+        // if (anime.authorship.length > 0 && newAuthor === "") {
+        //   setNewAuthor(anime.authorship[0]);
+        // }
       }
   
       if (gender.length > 0 && JSON.stringify(gender) !== JSON.stringify(anime.gender)) {
@@ -96,8 +99,6 @@ const FormEditar = ({ id, anime }) => {
       setUpdates(newUpdates)
     }
     
-    // console.log("results:", updates);
-    
   }, [title, gender, image, origin, studio, description, authorship])
  
   
@@ -109,11 +110,6 @@ const FormEditar = ({ id, anime }) => {
       setAreInputsBlank(true);
     } else {
       
-      // const finalUpdates = {
-      //   ...updates,
-      //   gender: gender.map((selectedGender) => selectedGender.value),
-      // }
-
       console.log('result: ', updates);
       editAnime(updates, id);
 
@@ -132,12 +128,34 @@ const FormEditar = ({ id, anime }) => {
 
 
   const handleGenderChange = (selectedOptions) => {
-    // setDisplayGender(selectedOptions);
-    setGender(selectedOptions);
-
-   
+    setGender(selectedOptions);   
   };
 
+  const handleAdd = (e) => {
+  e.preventDefault()
+  const author = newAuthor.trim();
+  if (author && !authorship.includes(author)) {
+    setAuthorship(prevAuthorship => [...prevAuthorship, author]);
+  }
+  setNewAuthor('');
+
+  authorsInput.current.focus();
+}
+
+// const handleTest = () => {
+//   editAnime({ "title": "Shingeki no Kiojin",
+//         "gender": [
+//           "SEINEN",
+//           "SHONEN"
+//         ],
+//         "image": "https://www.crunchyroll.com/imgsrv/display/thumbnail/480x720/catalog/crunchyroll/323c82257b2f6567fabbb7bd55bfa753.jpe",
+//         "origin": "MANGA",
+//         "studio": "MAPPA",
+//         "description": "Shingeki no Kyojin (Attack on Titan) é um anime que se passa em um mundo onde a humanidade está à beira da extinção devido a gigantes humanoides chamados Titãs que devoram humanos. A história segue Eren Yeager e seus amigos enquanto eles lutam para sobreviver, descobrindo segredos obscuros sobre os Titãs e sua sociedade. A série é conhecida por sua ação intensa e explorou temas como liberdade, política e moralidade. É uma das séries de anime mais populares e influentes dos últimos anos.",
+//         "authorship": [
+//           "Hajime Isayama"
+//         ]}, "654cc65ec8b8d4287a437171")
+// }
   return (
     <>
     <form onSubmit={handleSubmit} className={styles.formEditar__container}>
@@ -211,27 +229,27 @@ const FormEditar = ({ id, anime }) => {
         />
       </label>
 
-      {/* <label>
-        <p>Autor:</p>
-        <input
-          required
-          type="text"
-          name="author"
-          value={authorship}
-          onChange={(e) => {setAuthorship(e.target.value)}}
-        />
-      </label> */}
+      <label className={styles.formEditar__authorsContainer}>
+        <div >
+        <p>Autoria: </p>
+          <input 
+            // required={authorship.length === 0} 
+            name="authorship"
+            type="text" 
+            onChange={(e) => setNewAuthor(e.target.value)}
+            value={newAuthor}
+            ref={authorsInput}
+          />
+          <button onClick={handleAdd} className="btn">add</button>
+        </div>
+      </label>  
+
+      <p>Autores adicionados: {authorship.map(author => <em key={author}>{author}, </em>)}</p>
 
       <button type="submit" className="btn">
         Enviar
       </button>
 
-      {/* <button onClick={() => {
-        // console.log("display gender: ", displayGender );
-        console.log("gender: ", gender);
-        }}>
-        aperta
-      </button> */}
 
       {response && <p className="success">Anime atualizado com sucesso.</p>}
       {error && <p className="error">Ocorreu um erro. Tente novamente</p>}
@@ -239,6 +257,10 @@ const FormEditar = ({ id, anime }) => {
         <p className="error">Os campos estão vazios. Digite algo para atualizar.</p>
       )}
     </form>
+        {/* <button
+        onClick={handleTest
+      }
+        >teste</button> */}
 
 
 </>

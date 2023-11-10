@@ -1,7 +1,7 @@
 // styles
 import styles from "../styles/components/FormCadastrar.module.css"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePost } from "../hooks/usePost"
 
 import Select from 'react-select';
@@ -20,7 +20,11 @@ const FormCadastrar = () => {
   const [origin, setOrigin] = useState("");
   const [studio, setStudio] = useState("");
   const [description, setDescription] = useState("");
-  const [authorship, setAuthorship] = useState(["oda genio"]);
+  const [authorship, setAuthorship] = useState([]);
+
+  const [newAuthor, setNewAuthor] = useState("");
+
+  const authorsInput = useRef(null)
 
   const [gender, setGender] = useState([]);
 
@@ -69,7 +73,7 @@ const FormCadastrar = () => {
     e.preventDefault();
     reset();
     
-    if (Object.values(updates).every((value) => value === '')) {
+    if (Object.values(updates).every((value) => value === '') || authorship.length === 0) {
       setAreInputsBlank(true);
     } else {
       
@@ -82,13 +86,13 @@ const FormCadastrar = () => {
       addAnime(updates);
 
   
-      // setTitle('');
-      // setGender([]);
-      // setImage('');
-      // setOrigin('');
-      // setStudio('');
-      // setDescription('');
-      // setAuthorship([]);
+      setTitle('');
+      setGender([]);
+      setImage('');
+      setOrigin('');
+      setStudio('');
+      setDescription('');
+      setAuthorship([]);
 
       setAreInputsBlank(false);
     }
@@ -101,6 +105,18 @@ const FormCadastrar = () => {
 
    
   };
+
+  const handleAdd = (e) => {
+    e.preventDefault()
+    const author = newAuthor.trim();
+    if(author && !authorship.includes(author)){
+      setAuthorship(prevAuthorship => [...prevAuthorship, author]);
+    }
+    setNewAuthor('');
+    authorsInput.current.focus;
+  }
+
+  
 
   return (
     <form onSubmit={handleSubmit} className={styles.formCadastrar__container}>
@@ -122,7 +138,7 @@ const FormCadastrar = () => {
         options={genderOptions}
         onChange={handleGenderChange}
         placeholder="Selecione o gênero:"
-        className={styles.formEditar__select}
+        className={styles.formCadastrar__select}
         styles={customStyles}
         isMulti={true}
   
@@ -171,22 +187,29 @@ const FormCadastrar = () => {
         />
       </label>
 
-      {/* <label>
-        <p>Autor:</p>
-        <input
-          required
-          type="text"
-          name="author"
-          value={authorship}
-          onChange={(e) => {setAuthorship(e.target.value)}}
-        />
-      </label> */}
+      
+      <label className={styles.formCadastrar__authorsContainer}>
+        <div >
+        <p>Autoria: </p>
+          <input 
+            required={authorship.length === 0} 
+            name="authorship"
+            type="text" 
+            onChange={(e) => setNewAuthor(e.target.value)}
+            value={newAuthor}
+            ref={authorsInput}
+          />
+          <button onClick={handleAdd} className="btn">add</button>
+        </div>
+      </label>  
 
+      <p>Autores adicionados: {authorship.map(author => <em key={author}>{author}, </em>)}</p>
+      
       <button type="submit" className="btn">
         Cadastrar
       </button>
 
-      {response && <p className="success">Anime atualizado com sucesso.</p>}
+      {response && <p className="success">Anime adcionado com sucesso.</p>}
       {error && <p className="error">Ocorreu um erro. Tente novamente</p>}
       {areInputsBlank && (
         <p className="error">Os campos estão vazios. Digite algo para atualizar.</p>

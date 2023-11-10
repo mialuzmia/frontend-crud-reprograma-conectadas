@@ -141,7 +141,7 @@ a {
   margin: 10px 0;
 }
 .success{
-  color: green;
+  color: green !important;
   background: lightgreen;
   border: 1px solid green;
   border-radius: 4px;

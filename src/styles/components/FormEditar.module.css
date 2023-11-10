@@ -33,10 +33,15 @@
   width: 100%; 
 }
 
-.formEditar__container label p {
+/* .formEditar__container label p {
+  font-size: 1rem;
+  color: var(--gray-color);
+} */
+.formEditar__container p {
   /* font-size: 1rem; */
   color: var(--gray-color);
 }
+
 
 .formEditar__container label {
   border: 2px solid var(--gray-color);
@@ -75,4 +80,18 @@
   padding: 0 .5rem;
   resize: vertical;
   min-height: 10rem;
+}
+.formEditar__authorsContainer{
+  flex-direction: column;
+}
+.formEditar__authorsContainer div{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  
+}
+
+.formEditar__authorsContainer div button{
+  width: 20%;
+  
 }
