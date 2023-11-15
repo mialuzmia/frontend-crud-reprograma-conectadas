@@ -241,6 +241,7 @@ const FormEditar = ({ id, anime }) => {
       {areInputsBlank && (
         <p className="error">Os campos estão vazios. Digite algo para atualizar.</p>
       )}
+
     </form>
   );
 };
