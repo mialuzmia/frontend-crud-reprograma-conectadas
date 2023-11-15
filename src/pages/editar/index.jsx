@@ -15,11 +15,13 @@ const Editar = () => {
 
 	const { data: anime, loading } = useGet(`https://fast-animes.onrender.com/animes/${id}`);
 
+  // console.log(id);
   
   return (
     <div className={`page ${styles.editar__container}`}>
       {anime && <FormEditar 
         anime={anime}
+        id={id}
       />}
 
   {loading && <ReactLoading type="spin" color="#1366d3"  />}
