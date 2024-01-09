@@ -8,24 +8,20 @@
 ### Front-end:
 <table>
   <th>
-    <td align="center">
       <a href="https://github.com/TainaRaio">
         <img src="https://github.com/TainaRaio.png" width="100px;" alt="Foto da Pessoa no GitHub"/><br>
         <sub>
           <b>Tainã Raio</b>
         </sub>
       </a>
-    </td>
   </th>
    <th>
-    <td align="center">
       <a href="https://github.com/mialuzmia">
         <img src="https://github.com/mialuzmia.png" width="100px;" alt="Foto da Pessoa no GitHub"/><br>
         <sub>
           <b>Mia Azevedo</b>
         </sub>
       </a>
-    </td>
   </th>
   </table>
   
