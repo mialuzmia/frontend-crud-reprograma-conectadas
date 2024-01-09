@@ -2,6 +2,7 @@
 
  - Projeto em grupo realizado na formação continuada da {Reprograma}.
  - É uma plataforma para cadastro, busca e divulgação de animes, construímos tanto o front quanto o back da aplicação.
+ -  [Repositório back-end](https://github.com/Jhamyllie/backend-crud-reprograma-conectadas)
 
 ## 🤝 Colaboradores
 
